@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import './App.css';
 
 function Header() {
-  return(
+  return (
     <div>
       <ul>
         <a href="">Home |</a>
@@ -12,7 +12,7 @@ function Header() {
         <a href=""> Contact |</a>
       </ul>
     </div>
-  )
+  );
 }
 
 function ProductsNew() {
@@ -26,17 +26,23 @@ function ProductsNew() {
       Image Url: <input type="input" name ="image_url"></input>
       <hr />
     </div>
-  )
+  );
 }
 
-function ProductsIndex() {
- return (
-  <div>
-    <h1>Products List</h1>
-    <p>Displays all products here</p>
-    <hr/>
-  </div>
- )
+function ProductsIndex(props) {
+  console.log(props['products'][2].description);
+
+  return (
+      {props['products'].map(products =>(
+        <div key ={products.id}>
+          <h1>Products List</h1>
+          <p>name: {products.name}</p>
+          <p>price: {products.price}</p>
+          <p>description: {products.description}</p>
+          </div>
+      ))}
+      <hr/>
+  );
 }
 
 function Footer() {
@@ -44,14 +50,39 @@ function Footer() {
     <div>
       <p>Copyright @2022</p>
     </div>
-  )
+  );
 }
 
 function Content() {
+  const [products, setProducts] = useState( [
+    {
+      id: 1,
+      name: "Phone",
+      description: "Gadget used to power your life",
+      price: "$200",
+      image_url: "..."
+    },
+    {
+      id: 2,
+      name: "Car",
+      description: "Motor vehicle",
+      price: "$24000",
+      image_url: "..."
+    },
+    {
+      id: 3,
+      name: "Knife",
+      description: "Cut stuff up",
+      price: "$20",
+      image_url: "..."
+    },
+  ]);
+     
   return (
     <div>
       <ProductsNew />
       <ProductsIndex />
+      <ProductsIndex products={products} />
     </div>
   );
 }
