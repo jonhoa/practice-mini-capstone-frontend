@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
+import { Content } from './Content';
 
 function Header() {
   return (
@@ -15,7 +15,7 @@ function Header() {
   );
 }
 
-function ProductsNew() {
+export function ProductsNew() {
   return (
     <div align="left">
       <hr/>
@@ -29,60 +29,10 @@ function ProductsNew() {
   );
 }
 
-function ProductsIndex(props) {
-  console.log(props['products'][2].description);
-
-  return (
-      {props['products'].map(products =>(
-        <div key ={products.id}>
-          <h1>Products List</h1>
-          <p>name: {products.name}</p>
-          <p>price: {products.price}</p>
-          <p>description: {products.description}</p>
-          </div>
-      ))}
-      <hr/>
-  );
-}
-
 function Footer() {
   return (
     <div>
       <p>Copyright @2022</p>
-    </div>
-  );
-}
-
-function Content() {
-  const [products, setProducts] = useState( [
-    {
-      id: 1,
-      name: "Phone",
-      description: "Gadget used to power your life",
-      price: "$200",
-      image_url: "..."
-    },
-    {
-      id: 2,
-      name: "Car",
-      description: "Motor vehicle",
-      price: "$24000",
-      image_url: "..."
-    },
-    {
-      id: 3,
-      name: "Knife",
-      description: "Cut stuff up",
-      price: "$20",
-      image_url: "..."
-    },
-  ]);
-     
-  return (
-    <div>
-      <ProductsNew />
-      <ProductsIndex />
-      <ProductsIndex products={products} />
     </div>
   );
 }
@@ -96,5 +46,23 @@ function App() {
     </div>
   );
 }
+
+export function ProductsIndex(props) {
+  console.log(props['products'][2].description);
+
+  return (
+    <div id = "products-index">
+      {props['products'].map(products => (
+        <div key={products.id}>
+          <h1>Products List</h1>
+          <p>name: {products.name}</p>
+          <p>price: {products.price}</p>
+          <p>description: {products.description}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 
 export default App;
