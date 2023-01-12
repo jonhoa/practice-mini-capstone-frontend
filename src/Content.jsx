@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ProductsNew } from './App';
 import { ProductsIndex } from "./ProductsIndex";
+import { ProductsShow } from "./ProductsShow";
 import { Modal } from "./Modal";
 
 export function Content() {
@@ -47,6 +48,7 @@ export function Content() {
       <ProductsIndex products={products} onSelectPost={handleShowPost}/>
       <Modal show={isPostsShowVisible} onClose ={handleHidePost}>
         <p>TEST</p>
+        <ProductsShow product={currentProduct} />
       </Modal>
     </div>
   );
