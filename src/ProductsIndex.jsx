@@ -4,13 +4,15 @@ export function ProductsIndex(props) {
 
   return (
     <div id = "products-index">
+      <h1>Products List</h1>
+      <hr />
       {props['products'].map(product => (
         <div key={product.id}>
-          <h1>Products List</h1>
-          <p>name: {product.name}</p>
-          <p>price: {product.price}</p>
-          <p>description: {product.description}</p>
-          <button onClick ={props.onSelectPost}>View More</button>
+          <h2>{product.name}</h2>
+          <p>Price: {product.price}</p>
+          <p>Description: {product.description}</p>
+          <button onClick ={() => props.onSelectPost(product)}>View More</button>
+          <hr />
         </div>
       ))}
     </div>

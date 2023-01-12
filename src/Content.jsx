@@ -5,13 +5,17 @@ import { Modal } from "./Modal";
 
 export function Content() {
   const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
-  const handleShowPost = () => {
+  const handleShowPost = (products) => {
+    console.log(products);
+    setCurrentProduct(products);
+    console.log('running the program');
     setIsPostsShowVisible(true);
   };
 
   const handleHidePost = () => {
     setIsPostsShowVisible(false);
   };
+  const [currentProduct, setCurrentProduct] = useState({})
 
   const [products, setProducts] = useState([
     {
