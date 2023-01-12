@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ProductsNew } from './App';
 import { ProductsIndex } from "./ProductsIndex";
+import { Modal } from "./Modal";
 
 export function Content() {
   const [products, setProducts] = useState([
@@ -31,6 +32,9 @@ export function Content() {
     <div>
       <ProductsNew />
       <ProductsIndex products={products} />
+      <Modal show={true}>
+        <p>TEST</p>
+      </Modal>
     </div>
   );
 }

@@ -39,7 +39,7 @@ function Footer() {
 
 function App() {
   return (
-    <div>
+    <div class = "container-fluid">
       <Header />
       <Content />
       <Footer />
