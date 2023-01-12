@@ -4,6 +4,15 @@ import { ProductsIndex } from "./ProductsIndex";
 import { Modal } from "./Modal";
 
 export function Content() {
+  const [isPostsShowVisible, setIsPostsShowVisible] = useState(false);
+  const handleShowPost = () => {
+    setIsPostsShowVisible(true);
+  };
+
+  const handleHidePost = () => {
+    setIsPostsShowVisible(false);
+  };
+
   const [products, setProducts] = useState([
     {
       id: 1,
@@ -31,8 +40,8 @@ export function Content() {
   return (
     <div>
       <ProductsNew />
-      <ProductsIndex products={products} />
-      <Modal show={true}>
+      <ProductsIndex products={products} onSelectPost={handleShowPost}/>
+      <Modal show={isPostsShowVisible} onClose ={handleHidePost}>
         <p>TEST</p>
       </Modal>
     </div>
